@@ -4,6 +4,23 @@
     <div class="nav-container">
         <p><img src="{% static "base/img/Logo.png" %}" alt="Logo" class="Logo"><p/>
             <h1 class="naam" > Apotheek <br>  De Plus </h1>
-                <a href="{% url 'hello' %}" class="nav-item">Hello</a>
+            {%if user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="nav-item">Mijn Pofiel</a>
+                <a href="{% url 'openstaande_afhaalacties' %}" class="nav-item">Openstaande Afhaalacties</a>
+                
+                {% if user.is_superuser %}
+                <a href="{% url 'add_collection' %}" class="nav-item">Voeg Afhaling Toe</a>
+                <a href="{% url 'all_collections' %}" class="nav-item">Alle Afhalingen</a>
+                <a href="{% url 'all_collections' %}" class="nav-item">Alle Afhalingen</a>
+                <a href="{% url 'list_medicines' %}" class="nav-item">Alle Medicijnen</a>
+                <a href="{% url 'add_medicine' %}" class="nav-item">Voeg Medicijn Toe</a>
+                {% endif %}
+
+            <a href="{% url 'logout_user' %}" class="nav-item">logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="nav-item">login</a>
+                <a href="{% url 'register' %}" class="nav-item">register</a>
+            {% endif %}
+                
     </div>
 </body>

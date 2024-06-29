@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h1>Alle Afhalingen</h1>
+
+<table>
+    <tr>
+        <th>Medicijn</th>
+        <th>Gebruiker</th>
+        <th>Datum</th>
+        <th>Afhaling</th>
+        <th>Goedgekeurd</th>
+        <th>Actie</th>
+    </tr>
+    {% for collection in collections %}
+    <tr>
+        <td>{{ collection.Medicine.Name }}</td>
+        <td>{{ collection.user.username }}</td>
+        <td>{{ collection.Date }}</td>
+        <td>{{ collection.Collected }}</td>
+        <td>{{ collection.CollectedApproved }}</td>
+        <td>
+            {% if not collection.CollectedApproved %}
+            <form method="post" action="{% url 'approve_collection' collection.id %}" style="display:inline;">
+                {% csrf_token %}
+                {% if collection.Collected %}
+                <button type="submit">Goedkeuren</button>
+                {% endif %}
+            </form>
+            {% endif %}
+            <form method="post" action="{% url 'delete_collection' collection.id %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Deleten</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

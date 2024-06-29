@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h1>Wijzig Medicijn</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"class="button">Sla Wijziging Op </button>
+</form>
+
+<a href="{% url 'list_medicines' %}"class="button">Terug</a>
+
+{% endblock %}

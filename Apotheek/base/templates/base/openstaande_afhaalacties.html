@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h1>Uw Openstaande Afhalingen</h1>
+<table>
+    <tr>
+        <th>Medicijn</th>
+        <th>Datum</th>
+        <th>Actie</th>
+    </tr>
+    {% for collection in collections %}
+    <tr>
+        <td>{{ collection.Medicine.Name }}</td>
+        <td>{{ collection.Date }}</td>
+        <td>
+            {% if not collection.Collected %}
+            <form method="post" action="{% url 'mark_collected' collection.id %}">
+                {% csrf_token %}
+                <button type="submit">Markeer als Opgehaald</button>
+            </form>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

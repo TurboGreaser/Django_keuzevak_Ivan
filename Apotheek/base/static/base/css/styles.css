@@ -1,3 +1,77 @@
 .main_body {
     background-color: rgb(166, 166, 166);
 }
+
+.edit_button {
+    font-style: arial;
+    font-size: 1rem;
+    color: blue;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td form {
+    margin: 0;
+}
+
+td form button {
+    margin: 0;
+}
+
+.message {
+    background-color: rgb(50, 225, 73);
+    border: 2px solid green;
+    /* Green border */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 10px;
+    /* Some padding to give space inside the border */
+    display: inline-block;
+    /* Fit box to content */
+    margin: 10px 0;
+}
+
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    background-color: #ffffff;
+    /* Blue background */
+    border: 2px solid #000000;
+    border-radius: 4px;
+    /* Rounded edges */
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.button:hover {
+    background-color: #48a0ff;
+}
+
+.button.delete {
+    background-color: #ffffff;
+    /* Red background for delete */
+}
+
+.button.delete:hover {
+    background-color: #c82333;
+}

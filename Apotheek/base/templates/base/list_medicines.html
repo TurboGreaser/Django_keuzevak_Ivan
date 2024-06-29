@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h1>Alle Medicijnen</h1>
+
+<table>
+    <tr>
+        <th>Naam</th>
+        <th>Fabrikant</th>
+        <th>Geneesd</th>
+        <th>Bij effect</th>
+        <th>Actie</th>
+    </tr>
+    {% for medicine in medicines %}
+    <tr>
+        <td>{{ medicine.Name }}</td>
+        <td>{{ medicine.Manufacturer }}</td>
+        <td>{{ medicine.Cures }}</td>
+        <td>{{ medicine.SideEffects }}</td>
+        <td>
+            <a href="{% url 'edit_medicine' medicine.id %}" class="button">Wijzig</a>
+            <a href="{% url 'delete_medicine' medicine.id %}" class="button delete">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
