@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Apotheek{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'base/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'base/css/menu.css' %}">
+    {% block csslinks %}{% endblock csslinks %}
+</head>
+<body class="main_body">
+    <div class="content">
+    {% include 'base/menu.html'%}
+    
+    {% if messages %}
+    <div class="message">
+            {% for message in messages %}
+                {{message}} <br>
+            {% endfor %}
+    </div> 
+    {% endif %}
+
+        
+            {% block content%}{% endblock content%}
+        </div>
+
+</body>
+</html>

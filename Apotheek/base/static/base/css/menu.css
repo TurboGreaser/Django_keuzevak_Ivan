@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+}
+
+.nav-container {
+    background-color: rgb(31, 35, 35);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-left: 1rem;
+}
+
+.nav-item {
+    background-color: rgb(81, 81, 81);
+    margin: 0.1rem;
+    padding: 0.8rem;
+}
+
+.Logo {
+    width: 6rem;
+    height: 6rem;
+    background-color: rgb(81, 81, 81);
+    padding: 0.7rem;
+}
+
+a {
+    color: rgb(219, 212, 212);
+    font-style: italic;
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+
+a:hover {
+    color: darkgreen;
+    text-decoration: underline;
+}
+
+.naam {
+    font-size: 1.2rem;
+    color: aliceblue;
+    margin-left: -2.6rem;
+}
